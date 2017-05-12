@@ -1,0 +1,5 @@
+[openstack:children]
+openstack_control
+
+[openstack_control]
+192.168.144.2

@@ -1,0 +1,20 @@
+---
+- name: Stop and disable NetworkManager
+  systemd:
+    name: NetworkManager
+    enabled: no
+    state: stopped
+
+- name: Start and enable network
+  systemd:
+    name: network
+    enabled: yes
+    state: started
+
+- name: Copy packstack answers file
+  copy:
+    src: packstack-answers.txt
+    dest: /root/packstack-answers.txt
+
+- name: Run packstack
+  command: packstack --answer-file=packstack-answers.txt

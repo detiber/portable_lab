@@ -1,0 +1,5 @@
+---
+- name: OpenStack Control
+  hosts: openstack_control
+  roles:
+  - openstack_control_host
