@@ -1104,7 +1104,7 @@ CONFIG_SWIFT_KS_PW=44693ef80b1a4dc9
 # device; Packstack does not create the filesystem, you must do this
 # first). If left empty, Packstack creates a loopback device for test
 # setup.
-CONFIG_SWIFT_STORAGES=
+CONFIG_SWIFT_STORAGES=/dev/sda5
 
 # Number of Object Storage storage zones; this number MUST be no
 # larger than the number of configured storage devices.

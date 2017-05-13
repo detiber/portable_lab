@@ -11,13 +11,38 @@
     enabled: yes
     state: started
 
-# TODO: Create partition for cinder-volumes if it does not already exist
+- name: Create the cinder-volumes partition
+  parted:
+    device: /dev/sda
+    name: cinder-volumes
+    number: 4
+    part_start: 77618176.0KiB
+    part_end: 182475776.0KiB
+    part_type: primary
+    state: present
+    flags: [lvm]
 
 - name: Create the cinder-volumes volume group
   lvg:
     vg: cinder-volumes
     pvs: /dev/sda4
     state: present
+
+- name: Create the swift storage partition
+  parted:
+    device: /dev/sda
+    name: swift-storage
+    number: 5
+    part_end: 100%
+    part_start: 187GB
+    part_type: primary
+    state: present
+
+- name: Create the swift storage filesystem
+  filesystem:
+    dev: /dev/sda5
+    fstype: xfs
+    resizefs: yes
 
 - name: Copy packstack answers file
   copy:
