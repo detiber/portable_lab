@@ -38,11 +38,12 @@
     part_type: primary
     state: present
 
-- name: Create the swift storage filesystem
-  filesystem:
-    dev: /dev/sda5
-    fstype: xfs
-    resizefs: yes
+# TODO: this errors when the filesystem is not mounted
+#- name: Create the swift storage filesystem
+#  filesystem:
+#    dev: /dev/sda5
+#    fstype: xfs
+#    resizefs: yes
 
 - name: Copy packstack answers file
   copy:
