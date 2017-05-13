@@ -1115,7 +1115,7 @@ CONFIG_SWIFT_STORAGE_ZONES=1
 CONFIG_SWIFT_STORAGE_REPLICAS=1
 
 # File system type for storage nodes. ['xfs', 'ext4']
-CONFIG_SWIFT_STORAGE_FSTYPE=ext4
+CONFIG_SWIFT_STORAGE_FSTYPE=xfs
 
 # Custom seed number to use for swift_hash_path_suffix in
 # /etc/swift/swift.conf. If you do not provide a value, a seed number
