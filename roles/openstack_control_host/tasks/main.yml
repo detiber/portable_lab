@@ -11,6 +11,14 @@
     enabled: yes
     state: started
 
+# TODO: Create partition for cinder-volumes if it does not already exist
+
+- name: Create the cinder-volumes volume group
+  lvg:
+    vg: cinder-volumes
+    pvs: /dev/sda4
+    state: present
+
 - name: Copy packstack answers file
   copy:
     src: packstack-answers.txt
